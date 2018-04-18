@@ -1,0 +1,12 @@
+{
+  "short_name": "Shopping List",
+  "name": "Shopping List Helper",
+  "icons": [
+    {
+      "src": "shoplist_icon.ico",
+      "type": "image/ico",
+      "sizes": "16x16"
+    }
+  ],
+  "start_url": "shoplist_app.html"
+}
