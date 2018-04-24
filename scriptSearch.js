@@ -1,5 +1,5 @@
 const endpoint = 'https://api.edamam.com/search?';
-const query = document.querySelector('#query');
+const query = document.querySelector('#query').value;
 const submit = document.querySelector('#submit');
 
 function search() {
@@ -8,12 +8,10 @@ function search() {
         return response.json();
     })
     .then(function(data) {
-    // console.log(data);
-        parseData(data.hits);
+        console.log(data);
     });
 }
 
 submit.addEventListener('click', (e) => {
-    e.preventDefault();
     search();
 })
