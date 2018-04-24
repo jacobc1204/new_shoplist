@@ -1,5 +1,6 @@
 const endpoint = 'https://api.edamam.com/search?';
-const query = document.querySelector('#query') || 'chicken';
+const query = document.querySelector('#query').value || 'chicken';
+const submit = document.querySelector('#submit') || '';
 
 function parseData(data) {
     // console.log(data);
@@ -41,3 +42,8 @@ function search() {
         parseData(data.hits);
     });
 }
+
+submit.addEventListener('click', () => {
+    search();
+    document.querySelector('#query').value = '';
+});
