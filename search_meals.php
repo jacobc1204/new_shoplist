@@ -17,5 +17,5 @@
     </section>
     <?php require('footer.html') ?>
 </body>
-<script src="scriptSearch.js"></script>
+<script src="script.js"></script>
 </html>
