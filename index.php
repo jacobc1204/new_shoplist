@@ -20,5 +20,5 @@
     <section></section>
     <?php require('footer.html') ?>
 </body>
-<script src="script.js"></script>
+<script src="scriptHome.js"></script>
 </html>

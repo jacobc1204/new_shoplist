@@ -12,8 +12,8 @@
 <body>
     <?php require('header.html') ?>
     <section>
-        <input type="text" />
-        <input type="submit" />
+        <input type="text" id="query"/>
+        <input type="submit" id="submit" />
     </section>
     <?php require('footer.html') ?>
 </body>

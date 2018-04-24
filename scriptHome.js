@@ -1,4 +1,5 @@
 const endpoint = 'https://api.edamam.com/search?';
+const query = 'chicken';
 
 function parseData(data) {
     // console.log(data);
@@ -30,7 +31,7 @@ function displayData(data) {
     }).join('');
 }
 
-fetch(endpoint + 'q=chicken&app_id=8fda32c8&app_key=b9e941727dbfb89e82a9b6e70eb84beb')
+fetch(endpoint + `q=${query}&app_id=8fda32c8&app_key=b9e941727dbfb89e82a9b6e70eb84beb`)
     .then(function(response) {
         return response.json();
     })
