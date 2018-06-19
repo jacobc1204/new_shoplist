@@ -1,6 +1,6 @@
 const endpoint = 'https://api.edamam.com/search?';
-const query = document.querySelector('#query').value;
 const submit = document.querySelector('#submit') || '';
+search();
 
 function parseData(data) {
     // console.log(data);
@@ -32,7 +32,7 @@ function displayData(data) {
     }).join('');
 }
 
-function search() {
+function search(query) {
     fetch(endpoint + `q=${query}&app_id=8fda32c8&app_key=b9e941727dbfb89e82a9b6e70eb84beb`)
     .then(function(response) {
         return response.json();
@@ -44,6 +44,9 @@ function search() {
 }
 
 submit.addEventListener('click', () => {
-    search();
+    var query = document.querySelector('#query')
+    search(query);
     document.querySelector('#query').value = '';
 });
+
+search('chicken');
