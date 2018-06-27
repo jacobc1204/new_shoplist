@@ -1,11 +1,11 @@
 const endpoint = 'https://api.edamam.com/search?';
 const submit = document.querySelector('#submit') || '';
 const items = {};
-const shoppingList = {};
 
 function addToList(meal) {
-    shoppingList[meal.name] = meal.ingredients;
-    console.log(shoppingList);
+    document.querySelector('#list').innerHTML += meal.ingredients.map(ing => {
+        return `<li>${ing}</li>`;
+    }).join('');
 }
 
 function parseData(data) {
@@ -36,7 +36,7 @@ function displayData(data) {
       <div class="item">
         <img src="${item.image}" />
         <div class="overlay">
-          <h2>${item.name}</h2>
+          <a href="${item.url}"><h2>${item.name}</h2></a>
           <p>${item.dietLabels.join(', ')} | ${Math.round(item.calories)} cal.</p>
           <button class="addBtn" id="${item.name}">Add to list</button>
         </div>
@@ -51,7 +51,6 @@ function search(query) {
         return response.json();
     })
     .then(function(data) {
-        // console.log(data);
         parseData(data.hits);
         document.querySelectorAll('.addBtn').forEach(item => {
             item.addEventListener('click', (e) => {
@@ -75,3 +74,8 @@ submit.addEventListener('click', () => {
         document.querySelector('#search_again').style.display = 'block';
     }
 });
+
+document.querySelector('#list_btn').addEventListener('click', () => {
+    const list = document.querySelector('#list');
+    list.style.display == 'block' ? list.style.display = 'none' : list.style.display = 'block';
+})
